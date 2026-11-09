@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quant-backtest-lab"
+version = "0.1.0"
+description = "Transparent daily-bar strategy research with delayed execution and trading costs"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = ["numpy>=1.24,<3", "pandas>=2.0,<4", "matplotlib>=3.7,<4"]
+
+[project.optional-dependencies]
+yahoo = ["yfinance>=0.2.54,<2"]
+
+[project.scripts]
+quant-backtest = "quant_backtest.cli:main"
+quant-backtest-web = "quant_backtest.web:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
